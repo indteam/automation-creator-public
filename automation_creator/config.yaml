@@ -1,5 +1,5 @@
 name: Automation Creator
-version: "1.0.3"
+version: "1.0.4"
 slug: automation_creator
 description: AI-powered automation creation for Home Assistant using natural language
 arch:
