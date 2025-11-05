@@ -1,0 +1,24 @@
+name: Automation Creator
+version: "1.0.0"
+slug: automation_creator
+description: AI-powered automation creation for Home Assistant using natural language
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+startup: application
+boot: auto
+ports:
+  8099/tcp: 8099
+map:
+  - config:rw
+options:
+  openai_api_key: ""
+  ha_access_token: ""
+
+schema:
+  openai_api_key: str
+  ha_access_token: str
+image: ghcr.io/indteam/automation-creator-{arch}
