@@ -16,9 +16,7 @@ map:
   - config:rw
 options:
   openai_api_key: ""
-  ha_access_token: ""
 
 schema:
   openai_api_key: str
-  ha_access_token: str
 image: ghcr.io/indteam/automation-creator-{arch}
