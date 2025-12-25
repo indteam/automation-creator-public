@@ -88,6 +88,8 @@ rest_command:
     payload: '{"user_text": "{{ user_text }}" }'
 ```
 
+**Note:** The IP address `127.0.0.1` (localhost) is used because the add-on runs on the same host as Home Assistant. If your Home Assistant is running on a different machine, replace `127.0.0.1` with the actual IP address of the machine where Home Assistant is running.
+
 4. **Save** the file
 
 5. Go to **Developer Tools** → **YAML** → **Check Configuration**

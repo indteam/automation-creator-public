@@ -29,6 +29,9 @@ rest_command:
       Content-Type: application/json
     payload: '{"user_text": "{{ user_text }}" }'
 ```
+
+**Note:** The IP address `127.0.0.1` (localhost) should match the host where Home Assistant is running. If Home Assistant is on a different machine, replace `127.0.0.1` with that machine's IP address.
+
 **Restart Home Assistant**
 
 ### 5. Create Automation Trigger
