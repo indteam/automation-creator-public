@@ -54,6 +54,12 @@ trigger:
       - automation {anything}
       - when {trigger} turn on {action}
       - when {trigger} turn off {action}
+      - создай автоматизацию {anything}
+      - сделай автоматизацию {anything}
+      - сделай так чтобы {anything}
+      - автоматизация {anything}
+      - когда {trigger} включи {action}
+      - когда {trigger} выключи {action}
     platform: conversation
 conditions: []
 actions:
@@ -85,6 +91,12 @@ trigger:
       - modify {anything} automation
       - edit {anything} automation
       - change {anything} automation
+      - измени автоматизацию {anything}
+      - редактируй автоматизацию {anything}
+      - обнови автоматизацию {anything}
+      - добавь условие к {anything}
+      - измени {anything} автоматизацию
+      - редактируй {anything} автоматизацию
     platform: conversation
 conditions: []
 actions:
@@ -103,9 +115,13 @@ If you want Assist replies powered by OpenAI:
 2) Settings → **Voice Assistants** → **Assist/Pipelines** → edit default pipeline → set **Conversation agent** to **OpenAI Conversation** → Save
 
 ### 8. Test
-**Create automation:** Say to Assist: **"Create automation turn on kitchen light when motion detected"**
+**Create automation (English):** Say to Assist: **"Create automation turn on kitchen light when motion detected"**
 
-**Modify automation:** Say to Assist: **"Modify the kitchen light automation to work only in evenings"**
+**Create automation (Russian):** Say to Assist: **"Создай автоматизацию включить свет когда движение"** or **"Сделай так чтобы когда я в душе, включался основной свет"**
+
+**Modify automation (English):** Say to Assist: **"Modify the kitchen light automation to work only in evenings"**
+
+**Modify automation (Russian):** Say to Assist: **"Измени автоматизацию кухня добавить условие вечер"**
 
 ✅ Done! Check **Automations** to see your new or modified automation.
 
