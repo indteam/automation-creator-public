@@ -86,6 +86,12 @@ rest_command:
     headers:
       Content-Type: application/json
     payload: '{"user_text": "{{ user_text }}" }'
+  call_automation_modifier:
+    url: http://127.0.0.1:8099/api/modify-automation
+    method: POST
+    headers:
+      Content-Type: application/json
+    payload: '{"user_text": "{{ user_text }}" }'
 ```
 
 **Note:** The IP address `127.0.0.1` (localhost) is used because the add-on runs on the same host as Home Assistant. If your Home Assistant is running on a different machine, replace `127.0.0.1` with the actual IP address of the machine where Home Assistant is running.
@@ -97,13 +103,57 @@ rest_command:
 6. If valid, restart Home Assistant:
    - Settings → System → Restart
 
-### Step 7: Test It!
+### Step 7: (Optional) Add Automation Modification Trigger
 
+If you want to modify automations via Assist:
+
+1. Go to **Settings** → **Automations & Scenes** → **Automations**
+2. Click **Create Automation**
+3. Click the three dots (⋮) → **Edit in YAML**
+4. Paste this automation:
+
+```yaml
+alias: Assist Automation Modifier
+id: assist_automation_modifier
+mode: single
+trigger:
+  - command:
+      - modify automation {anything}
+      - edit automation {anything}
+      - change automation {anything}
+      - update automation {anything}
+      - add condition to {anything}
+      - modify {anything} automation
+      - edit {anything} automation
+      - change {anything} automation
+    platform: conversation
+conditions: []
+actions:
+  - service: persistent_notification.create
+    data:
+      title: Modifying Automation
+      message: Processing your modification request...
+  - service: rest_command.call_automation_modifier
+    data:
+      user_text: "{{ trigger.sentence }}"
+```
+
+5. Click **Save**
+
+### Step 8: Test It!
+
+**Create an automation:**
 1. Open **Assist** (or use voice)
 2. Say: **"Create automation turn on kitchen light when motion detected"**
 3. Wait a few seconds
 4. Check **Settings** → **Automations & Scenes** → **Automations**
 5. You should see a new automation!
+
+**Modify an automation:**
+1. Open **Assist** (or use voice)
+2. Say: **"Modify the kitchen light automation to work only in evenings"**
+3. Wait a few seconds
+4. Check the automation - it should be updated!
 
 ---
 
@@ -133,10 +183,11 @@ Note: This only changes who replies in Assist. Automation creation still goes th
 - Check **Logs** tab for errors
 - Verify OpenAI API key is correct
 
-### "Cannot create automation" error
+### "Cannot create automation" or "Cannot modify automation" error
 - Check add-on **Logs** tab
 - Verify add-on is **Running**
 - Check Home Assistant logs for errors
+- Verify the automation exists (for modification requests)
 
 ### Automation trigger not working
 - Verify the automation is **Enabled**
