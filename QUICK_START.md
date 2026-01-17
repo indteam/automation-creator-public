@@ -125,3 +125,14 @@ If you want Assist replies powered by OpenAI:
 
 ✅ Done! Check **Automations** to see your new or modified automation.
 
+## Troubleshooting
+
+### Modification not working?
+- **Check add-on logs:** Settings → Add-ons → Automation Creator → Logs
+- **Verify Home Assistant version:** The add-on is compatible with Home Assistant 2025.9+ and 2025.12+
+- **Error "404" in logs?** Ensure you're using the latest add-on version (v1.0.8+)
+- The add-on uses documented API endpoints that work across different Home Assistant versions
+
+### Other issues?
+- See the full [README.md](README.md) for detailed troubleshooting
+

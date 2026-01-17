@@ -2,7 +2,7 @@
 
 AI-powered automation creation for Home Assistant using natural language. Supports both English and Russian.
 
-**Version 1.0.8** - Now with room/area context inference and Russian language support!
+**Version 1.0.9** - Fixed compatibility with Home Assistant 2025.12+ (automation modification now works on all versions)
 
 ## Quick Setup Guide
 
@@ -215,11 +215,18 @@ Note: This only changes who replies in Assist. Automation creation still goes th
 - Verify add-on is **Running**
 - Check Home Assistant logs for errors
 - Verify the automation exists (for modification requests)
+- **For modification errors:** The add-on uses documented API endpoints compatible with Home Assistant 2025.9+ and 2025.12+. If you see "404" errors in logs, ensure you're using the latest add-on version.
 
 ### Automation trigger not working
 - Verify the automation is **Enabled**
 - Check that `rest_command` was added to `configuration.yaml`
 - Restart Home Assistant after adding `rest_command`
+
+### Home Assistant Version Compatibility
+- **Minimum version:** Home Assistant Core 2025.9+
+- **Tested versions:** 2025.9.4, 2025.12.4+
+- The add-on uses documented REST API endpoints and is compatible with both older and newer Home Assistant versions
+- Automation modification works by fetching automation entities from the states API, ensuring compatibility across versions
 
 ## Support
 
